@@ -1,13 +1,16 @@
+/* 重設所有元素預設樣式，統一模型 */
 *, *::before, *::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/*網頁平滑滾動*/
 html {
     scroll-behavior: smooth;
-  }
+}
 
+/*背景圖+字型*/
 body {
     background-image: url('image/back3.jpeg');  /*圖片路徑 */
     background-size: cover;                 /* 圖片填滿整頁 */
@@ -18,6 +21,7 @@ body {
     font-weight: 500; 
 }
 
+/*模糊透明遮罩層*/
 body::before {
     content: "";
     position: fixed;
@@ -28,6 +32,8 @@ body::before {
     z-index: -1;
 }
 
+
+/*導覽列 固定在頁面上方、半透明*/
 .bar {
     display: flex;
     justify-content: center; /*項目置中排列 */
@@ -43,6 +49,7 @@ body::before {
     backdrop-filter: blur(4px); /*會有毛玻璃感 */
 }
 
+/*導覽列a樣式*/
 .bar a {
     position: relative;
     padding: 0 15px;
@@ -53,6 +60,7 @@ body::before {
     font-family: 'Silkscreen', sans-serif;
 }
 
+/*導覽列中分隔線*/
 .bar a:not(:last-child)::after {
     content: "";
     position: absolute;
@@ -65,13 +73,13 @@ body::before {
     opacity: 0.4;
 }
 
+/*滑鼠移到導覽列上變色*/
 .bar a:hover {
     color: #6C584C;
     text-decoration: underline;
 }
   
-/*intro大頭貼和基本資訊*/
-
+/*intro大頭貼和基本資訊 寬度限制、圓角、陰影*/
 .profile-card,
 .quote-box {
   max-width: 1100px;
@@ -82,11 +90,13 @@ body::before {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
+/*卡片內部內距*/
 .profile-inner,
 .quote-inner {
   padding: 50px 60px;
 }
 
+/*介紹區*/
 .intro-wrapper {
     max-width: 1300px;
     margin: 0 auto;
@@ -97,6 +107,7 @@ body::before {
     box-sizing: border-box;
 }
 
+/*介紹區內的上下排列設定*/
 .intro-section {
     max-width: 1100px;
     margin: 60px auto;
@@ -106,6 +117,7 @@ body::before {
     align-items: center;
 }
 
+/*基本資料*/
 .profile-card {
     display: flex;
     justify-content: space-between;
@@ -120,7 +132,7 @@ body::before {
 }
 
 .profile-card img:hover {
-    transform: scale(1.1) rotate(5deg);
+    transform: scale(1.1) rotate(5deg);/*放大旋轉*/
 }
 
 .profile-inner {
@@ -132,6 +144,7 @@ body::before {
     gap: 40px; 
 }
 
+/*頭像設定*/
 .profile-card img {
     width: 320px;
     height: 320px;
@@ -140,6 +153,7 @@ body::before {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
+/*文字介紹區塊*/
 .intro-block {
     text-align: left;
     display: flex;                 
@@ -173,6 +187,7 @@ body::before {
     display: inline-block;  /*避免 img 預設行內元素的縫隙問題*/
 }
 
+/*社群連結圖片*/
 .social a img {
     width: 50px;
     height: 50px;
@@ -183,6 +198,7 @@ body::before {
     transition: transform 0.3s ease-in-out;
     vertical-align: middle;
 }
+
 
 .social a img:hover {
     transform: scale(1.1);
@@ -239,7 +255,7 @@ body::before {
 }
 
   
-/*整體包裝左右卡片*/
+/*技能左右設定*/
 .skills-wrap {
     display: flex;
     justify-content: center;
@@ -259,7 +275,7 @@ body::before {
     box-sizing: border-box;
 }
   
-/*內部網格排法 */
+/*左側圓圈技能設定*/
 .skill-card {
     display: flex;
     flex-direction: column;
@@ -281,7 +297,7 @@ body::before {
     color: #a78e6f;
 }
   
-/*包住 4 個圓圈的網格容器*/
+/*包住4個圓圈的框*/
 .card-content {
     margin-top: 30px;
     display: grid;
@@ -291,7 +307,7 @@ body::before {
     align-items: center;
 }
   
-/*單一技能圓形*/
+/*技能圓圈設定*/
 .circle-skill {
     width: 120px;
     height: 120px;
@@ -335,6 +351,7 @@ circle {
     animation: draw50 3s ease-out infinite;
 }
 
+/*圓圈動畫*/
 @keyframes draw60 {
     0%   { stroke-dashoffset: 377; }
     30%  { stroke-dashoffset: 150; }
@@ -368,14 +385,14 @@ circle {
     color: #5e4b3c;
 }
   
-/* 右側條形技能 */
+/*右側技能條*/
 .bar-card {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
 }
   
-/* 單一條形技能區塊 */
+/*單一條形技能*/
 .bar-item {
     margin-bottom: 25px;
 }
@@ -423,6 +440,8 @@ circle {
     animation: fill85 3s ease-in-out infinite;
 }
 
+
+/*右側條形技能條動畫*/
 @keyframes fill60 {
     0% { width: 0%; }
     40% { width: 60%; }
@@ -444,7 +463,7 @@ circle {
     100% { width: var(--target-width); }
 }
 
-/*成長歷程*/
+/*成長歷程區 時間軸設計*/
 .timeline-wrapper {
     display: flex;
     flex-direction: column;
@@ -452,7 +471,8 @@ circle {
     align-items: flex-start;
     gap: 30px;
 }
-  
+
+/*圓圈與內容橫向排列*/
 .timeline-circle {
     display: flex;
     gap: 30px;
@@ -460,6 +480,7 @@ circle {
     flex-direction: row;
 }
 
+/*年份的時間節點*/
 .timeline-label {
     width: 100px;
     height: 100px;
@@ -476,6 +497,7 @@ circle {
     white-space: pre-line;
 }
 
+/*右側區塊*/
 .timeline {
     position: relative;
     max-width: 600px;
@@ -500,6 +522,7 @@ circle {
     color: #9b8570;
 }
 
+/*時間軸內容文字樣式*/
 .timeline-content h3 {
     font-size: 20px;
     color: #333;
@@ -512,9 +535,10 @@ circle {
 }
   
 .timeline-item:hover .timeline-content h3 {
-    color: #A7C957;
+    color: #A7C957;/*滑鼠移上變色*/
 }
-  
+
+/*時間軸綠色箭頭標記*/
 .dot {
     position: absolute;
     top: 10px;
@@ -525,7 +549,8 @@ circle {
     border-bottom: 8px solid transparent;
     border-left: 12px solid #A7C957;
 }
-  
+
+/*右側對應圖片預設隱藏+動畫*/
 .timeline-photo {
     width: 380px;
     min-height: 260px;
@@ -536,7 +561,8 @@ circle {
     justify-content: center;  
     align-items: center;  
 }
-  
+
+/*滑鼠 hover 對應item顯示正確圖片*/
 .timeline-photo img {
     position: absolute;
     height: 220px;
@@ -664,7 +690,7 @@ circle {
 }
 
 
-/* 活動區塊外層 */
+/*活動 左右交錯設計 */
 .activity-box {
     display: flex;
     align-items: center;
@@ -676,7 +702,7 @@ circle {
     box-shadow: 0 5px 20px rgba(0,0,0,0.05);
 }
   
-/*活動圖片樣式*/
+/*活動圖片設定*/
 .activity-box img {
     width: 320px;
     height: 220px;
@@ -691,7 +717,8 @@ circle {
     transform: scale(1.05);
     transition: transform 0.3s ease;
 }
-  
+
+/*反向排列*/
 .activity-box.reverse {
     flex-direction: row-reverse;
 }
@@ -705,7 +732,7 @@ circle {
     border-radius: 20px;
 }
   
-/*標題*/
+/*活動標題*/
 .activity-text h3 {
     font-size: 24px;
     color: #333;
@@ -713,15 +740,14 @@ circle {
     margin-bottom: 15px;
 }
   
-/*內文*/
+/*內文敘述*/
 .activity-text p {
     font-size: 18px;
     color: #444;
     line-height: 1.7;
 }
 
-
-
+/* 活動圖片滑入動畫 */
 @keyframes zoomIn {
     from {
       opacity: 0;
@@ -733,7 +759,7 @@ circle {
     }
 }
 
-/*留言*/
+/*留言版設計*/
 .message-board {
     max-width:1100px;
     margin: 60px auto;
@@ -743,14 +769,16 @@ circle {
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
     font-family: 'Noto Serif TC', serif;
 }
-  
+
+/*留言版標題*/
 .message-board h2 {
     text-align: center;
     font-size: 28px;
     color: #6C584C;
     margin-bottom: 30px;
 }
-  
+
+/*留言版表單樣式*/
 .message-form {
     display: flex;
     flex-direction: column;
@@ -761,7 +789,8 @@ circle {
     font-size: 18px;
     color: #555;
 }
-  
+
+/*輸入欄和文字區*/
 .message-form input,
 .message-form textarea {
     padding: 12px;
@@ -771,11 +800,12 @@ circle {
     resize: vertical;
     font-family: inherit;
 }
-  
+
 .message-form textarea {
     height: 120px;
 }
-  
+
+/*送出鈕*/
 .message-form button {
     width: 150px;
     align-self: flex-end;
@@ -803,6 +833,7 @@ circle {
     font-family: 'Noto Sans HK', sans-serif;
 }
 
+/*回到頂部按鈕*/
 .back-to-top {
     position: fixed;
     bottom: 30px;
@@ -818,7 +849,8 @@ circle {
 .back-to-top:hover {
     transform: scale(1.1) rotate(10deg);
 }
-  
+
+/*回頂部圖片*/
 .leaf-icon {
     width: 100%;
     height: 100%;
