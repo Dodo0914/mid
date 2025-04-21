@@ -1,8 +1,8 @@
 /* 重設所有元素預設樣式，統一模型 */
 *, *::before, *::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    margin: 0; /*移除所有元素的預設外邊距*/
+    padding: 0;/*移除所有元素的預設內邊距*/
+    box-sizing: border-box;/* 讓所有元素的寬高計算包含padding與border，方便控制尺寸*/
 }
 
 /*網頁平滑滾動*/
@@ -119,8 +119,8 @@ body::before {
 
 /*基本資料*/
 .profile-card {
-    display: flex;
-    justify-content: space-between;
+    display: flex;/*使用Flexbox讓內部元素水平排列*/
+    justify-content: space-between; /*子元素左右分散對齊 圖片與文字各在一邊*/
     align-items: center;
     width: 100%;
     max-width: 1100px;
@@ -128,7 +128,7 @@ body::before {
     background-color: #fdf7ef;
     border-radius: 30px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    border: 3px dashed #a98467;
+    border: 3px dashed #a98467;/*咖啡色虛線框*/
 }
 
 .profile-card img:hover {
@@ -194,8 +194,8 @@ body::before {
     margin-right: 10px;
     background-color: white;
     padding: 6px;
-    border-radius: 10px;
-    transition: transform 0.3s ease-in-out;
+    border-radius: 10px; /*圓角*/
+    transition: transform 0.3s ease-in-out;/*滑鼠移入時的動畫*/
     vertical-align: middle;
 }
 
@@ -204,21 +204,22 @@ body::before {
     transform: scale(1.1);
 }
 
+/*名言外框設計*/
 .quote-box {
     width: 100%;
     max-width: 1100px;  /* 與 .intro-section 和 .profile-card 同寬 */
     margin: 30px auto 0 auto;
     background-color: #fdf7ef;
-    padding: 50px 60px;
-    border-radius: 20px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-    text-align: center;
+    padding: 50px 60px;/*內邊距*/
+    border-radius: 20px; /*圓角設計*/
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);/*陰影*/
+    text-align: center; /*內文置中對齊*/
     font-family: 'Noto Sans TC', sans-serif;
     border: 3px dashed #a98467;
     box-sizing: border-box;
 }
 
-  
+/*名言文字樣式*/
 .quote-box .quote {
     font-size: 20px;
     color: #333;
@@ -227,7 +228,8 @@ body::before {
     font-family: 'Noto Serif TC', serif;
     font-weight: 700;
 }
-  
+
+/*作者名字樣式*/
 .quote-box .author {
     font-size: 18px;
     font-weight: bold;
@@ -235,14 +237,14 @@ body::before {
     font-family: 'Noto Serif TC', serif;
 }
   
-
+/*個人介紹區設定*/
 .myself01{
-    display: flex;
+    display: flex;/*使用Flex排版*/
     justify-content: flex-start;/*對齊主軸線最前端*/
     align-items: center;
     margin-right: 100px;
-    width: auto;
-    height: auto;
+    width: auto;/*寬度根據內容自動調整*/
+    height: auto;/*高度根據內容自動調整*/
 }
 
 
@@ -313,7 +315,8 @@ body::before {
     height: 120px;
     position: relative;
 }
-  
+
+/*設定圓形技能的SVG大小與旋轉方向*/
 .circle-skill svg {
     width: 120px;
     height: 120px;
@@ -326,11 +329,13 @@ circle {
     stroke-linecap: butt;
     fill: none;
 }
-  
+
+/*背景圓圈未填滿部分的樣式*/
 .bg {
     stroke: #f4eada;
 }
-  
+
+/*進度圓圈樣式*/
 .progress {
     stroke: #bfa074;
     stroke-width: 30;
@@ -352,16 +357,22 @@ circle {
 }
 
 /*圓圈動畫*/
+/*模擬線條畫出約60%*/
+/*377 × (1 - 0.6) 0.6=60%為要畫出來的比例*/
 @keyframes draw60 {
-    0%   { stroke-dashoffset: 377; }
+    0%   { stroke-dashoffset: 377; }/*377為整條的長度*/
     30%  { stroke-dashoffset: 150; }
     100% { stroke-dashoffset: 150; }
 }
+
+/*模擬線條畫出約70%*/
 @keyframes draw70 {
     0%   { stroke-dashoffset: 377; }
     30%  { stroke-dashoffset: 113; }
     100% { stroke-dashoffset: 113; }
 }
+
+/*模擬線條畫出約50%*/
 @keyframes draw50 {
     0%   { stroke-dashoffset: 377; }
     30%  { stroke-dashoffset: 189; }
@@ -529,6 +540,7 @@ circle {
     transition: color 0.3s ease;
 }
 
+/*時間軸內容p樣式*/
 .timeline-content p {
     font-size: 18px;
     line-height: 1.6;
@@ -586,6 +598,7 @@ circle {
     transform: scale(1);
 }
 
+/*時間軸分隔線 區分兩區塊*/
 .timeline-divider {
     position: relative;
     width: 100%;
@@ -594,13 +607,14 @@ circle {
     margin: 5px 0;
 }
 
+/*圖片動畫特效*/
 .timeline-photo img.active {
     opacity: 1;
     transform: scale(1);
     display: block;
 }
 
-  /* 顯示對應圖片 */
+/*點選時顯示對應圖片*/
 .item-1:hover ~ .timeline-photo .photo-1,
 .item-2:hover ~ .timeline-photo .photo-2,
 .item-3:hover ~ .timeline-photo .photo-3,
@@ -609,7 +623,7 @@ circle {
     opacity: 1;
 }
   
-  /* 其他圖片保持隱藏 */
+/*點選時其他圖片保持隱藏*/
 .item-1:hover ~ .timeline-photo .photo-2,
 .item-1:hover ~ .timeline-photo .photo-3,
 .item-1:hover ~ .timeline-photo .photo-4,
